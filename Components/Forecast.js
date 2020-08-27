@@ -13,7 +13,11 @@ export default function Forecast(props){
 const styles = StyleSheet.create({
     backdrop : {
         flexDirection : 'column',
-        justifyContent : 'center',
+        justifyContent : 'space-evenly',
+        width : '100%',
+        height : '30%',
+        backgroundColor: 'black',
+        opacity: .3,
     },
     text30 :{
         textAlign : 'center',
