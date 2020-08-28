@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         width : '100%',
         height : '30%',
         backgroundColor: 'black',
-        opacity: .3,
+        opacity: .5,
     },
     text30 :{
         textAlign : 'center',
