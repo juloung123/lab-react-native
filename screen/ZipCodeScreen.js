@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, StyleSheet, View, Text } from 'react-native'
+import { FlatList, StyleSheet, View, Text, ImageBackground } from 'react-native'
 import { TouchableHighlight } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
 
@@ -37,6 +37,9 @@ const styles = StyleSheet.create({
         flex : 1,
         flexDirection:'row',
         justifyContent:'space-between',
+
+        width : '100%',
+        height : '100%',
     },
     zipPlace :{
         flex : 1,

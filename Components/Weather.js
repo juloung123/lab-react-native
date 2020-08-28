@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Text, ImageBackground, StyleSheet } from 'react-native'
+import { Text, ImageBackground, StyleSheet, View } from 'react-native'
 import Forecast from './Forecast'
 import Constants from 'expo-constants';
 
@@ -7,6 +7,7 @@ export default function Weather(props){
     const [forecastInfo, setForecastInfo] = useState({
         main : '-',
         description : '-',
+        wind : 0,
         temp : 0,
     }) 
     useEffect(() => {
@@ -19,6 +20,7 @@ export default function Weather(props){
                         main: json.weather[0].main,
                         description: json.weather[0].description,
                         temp: json.main.temp,
+                        wind:json.wind.speed,
                     });
                 })
                 .catch((error) => {
@@ -31,27 +33,33 @@ export default function Weather(props){
     if(props.zipCode == '90110'){
         return(
             <ImageBackground source = {require('../bg.jpg')} style = {styles.backdrop}>
-                    <Text style = {styles.textbackground}>Zip code is {props.zipCode}</Text>
+                <View style = {styles.textbackground}>
+                    <Text style = {styles.text15}>Zip code is {props.zipCode}</Text>
                     <Forecast {...forecastInfo}/>
                     <Text style = {styles.text30}>{farenheit}°F</Text>
+                </View>
             </ImageBackground>
         )
     }
     else if(props.zipCode == '92000'){
         return(
             <ImageBackground source = {require('../bg1.jpg')} style = {styles.backdrop}>
-                    <Text style = {styles.textbackground}>Zip code is {props.zipCode}</Text>
+                <View style = {styles.textbackground}>
+                    <Text style = {styles.text15}>Zip code is {props.zipCode}</Text>
                     <Forecast {...forecastInfo}/>
                     <Text style = {styles.text30}>{farenheit}°F</Text>
+                </View>
             </ImageBackground>
         )
     }
     else{
         return(
             <ImageBackground source = {require('../bg2.jpg')} style = {styles.backdrop}>
-                    <Text style = {styles.textbackground}>Zip code is {props.zipCode}</Text>
+                <View style = {styles.textbackground}>
+                    <Text style = {styles.text15}>Zip code is {props.zipCode}</Text>
                     <Forecast {...forecastInfo}/>
                     <Text style = {styles.text30}>{farenheit}°F</Text>
+                </View>
             </ImageBackground>
         )
     }
@@ -68,11 +76,10 @@ const styles = StyleSheet.create({
         height : '100%'
     },
     textbackground : {
-        textAlign : 'center',
-        textAlignVertical: 'auto',
-        color: "white",
-        fontSize: 15,
-        fontWeight: "bold",
+        flexDirection : 'column',
+        justifyContent : 'space-between',
+        width : '100%',
+        height : '30%',
         backgroundColor: 'black',
         opacity: .5,
     },
@@ -81,6 +88,13 @@ const styles = StyleSheet.create({
         textAlignVertical: 'center',
         color: "white",
         fontSize: 30,
+        fontWeight: "bold"
+    },
+    text15 :{
+        textAlign : 'center',
+        textAlignVertical: 'auto',
+        color: "white",
+        fontSize: 15,
         fontWeight: "bold"
     },
 })
