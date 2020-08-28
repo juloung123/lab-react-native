@@ -27,12 +27,30 @@ export default function Weather(props){
                 });
             }
     }, [props.zipCode])
-    return(
-        <ImageBackground source = {require('../bg.jpg')} style = {styles.backdrop}>
-                <Text style = {styles.textbackground}>Zip code is {props.zipCode}</Text>
-                <Forecast {...forecastInfo}/>
-        </ImageBackground>
-    )
+    if(props.zipCode == '90110'){
+        return(
+            <ImageBackground source = {require('../bg.jpg')} style = {styles.backdrop}>
+                    <Text style = {styles.textbackground}>Zip code is {props.zipCode}</Text>
+                    <Forecast {...forecastInfo}/>
+            </ImageBackground>
+        )
+    }
+    else if(props.zipCode == '92000'){
+        return(
+            <ImageBackground source = {require('../bg1.jpg')} style = {styles.backdrop}>
+                    <Text style = {styles.textbackground}>Zip code is {props.zipCode}</Text>
+                    <Forecast {...forecastInfo}/>
+            </ImageBackground>
+        )
+    }
+    else{
+        return(
+            <ImageBackground source = {require('../bg2.jpg')} style = {styles.backdrop}>
+                    <Text style = {styles.textbackground}>Zip code is {props.zipCode}</Text>
+                    <Forecast {...forecastInfo}/>
+            </ImageBackground>
+        )
+    }
 }
 
 const styles = StyleSheet.create({
@@ -52,7 +70,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: "bold",
         backgroundColor: 'black',
-        opacity: .3,
+        opacity: .9,
     }
 })
 
